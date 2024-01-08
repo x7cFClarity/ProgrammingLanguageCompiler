@@ -1,7 +1,0 @@
-[package]
-name = "flare-interface"
-version = "0.0.0"
-edition = "2021"
-
-[dependencies]
-flare-lib = { path = "../flare-lib" }
