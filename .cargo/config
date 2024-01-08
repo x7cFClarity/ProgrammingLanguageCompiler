@@ -1,1 +1,2 @@
-rustflags= ""
+[build]
+rustflags= ["-Zpolonius"]
