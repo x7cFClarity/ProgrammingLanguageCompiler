@@ -1,3 +1,4 @@
+#[cfg(test)]
 use crate::string_to_record_mapped_searcher::StringToRecordMappedSearcher;
 
 #[test]
@@ -36,5 +37,22 @@ fn setting_records() {
 
 #[test]
 fn deleting_records() {
+    unimplemented!();
+}
 
+#[test]
+fn non_existing_records() {
+    let mut string_to_record_mapped_searcher = StringToRecordMappedSearcher::default();
+
+    // Store valid value
+    let record = 100;
+    string_to_record_mapped_searcher.set_record("123", record);
+
+    // Check values
+    let invalid_result = string_to_record_mapped_searcher.get_record("invalid");
+    assert!(invalid_result.is_none());
+
+    let valid_result = string_to_record_mapped_searcher.get_record("123");
+    assert!(valid_result.is_some());
+    assert_eq!(record, valid_result.unwrap());
 }

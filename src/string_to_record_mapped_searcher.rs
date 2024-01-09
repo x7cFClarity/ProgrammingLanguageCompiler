@@ -20,9 +20,7 @@ impl<Record> StringToRecordMappedSearcher<Record> {
 
         for _ in 0..label.len() {
             let path_segment_option = path.next();
-            if path_segment_option.is_none() {
-                return None;
-            }
+            path_segment_option?;
 
             let path_segment = path_segment_option.unwrap();
 
