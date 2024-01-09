@@ -1,10 +1,15 @@
-use programming_language:: string_keyed_record_searcher:: StringKeyedRecordSearcher;
+use programming_language::string_to_record_mapped_searcher::StringToRecordMappedSearcher;
 
 fn main() {
-    let mut skrs = StringKeyedRecordSearcher::default();
+    let mut strms = StringToRecordMappedSearcher::default();
 
-    skrs.set_record("abc", 10);
-    let record = skrs.find_mutably("abc", false);
+    {
+        strms.set_record("abc", 10);
+        let record = strms.get_mutable_node("abc", false);
+        println!("ABC record: {}", record.unwrap().record.unwrap());
+    }
 
+    strms.set_record("abc", 100);
+    let record = strms.get_mutable_node("abc", false);
     println!("ABC record: {}", record.unwrap().record.unwrap());
 }
