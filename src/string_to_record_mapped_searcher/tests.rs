@@ -8,6 +8,7 @@ fn setting_records() {
     let first_record = 10;
     let second_record = 20;
     let third_record = 100;
+    let third_alternate_record = second_record * 2;
 
     string_to_record_mapped_searcher.set_record("hello", first_record);
     string_to_record_mapped_searcher.set_record("world", second_record);
@@ -22,7 +23,18 @@ fn setting_records() {
     assert!(second_fetched_record.is_some());
     assert_eq!(second_record, second_fetched_record.unwrap());
 
-    let third_fetched_record = string_to_record_mapped_searcher.get_record("help");
+    let mut third_fetched_record = string_to_record_mapped_searcher.get_record("help");
     assert!(third_fetched_record.is_some());
     assert_eq!(third_record, third_fetched_record.unwrap());
+
+    // Test reassigning capability
+    string_to_record_mapped_searcher.set_record("help", third_alternate_record);
+    third_fetched_record = string_to_record_mapped_searcher.get_record("help");
+    assert!(third_fetched_record.is_some());
+    assert_eq!(third_alternate_record, third_fetched_record.unwrap());
+}
+
+#[test]
+fn deleting_records() {
+
 }
