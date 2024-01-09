@@ -1,4 +1,5 @@
 # x7cF Clarity Programming Language
+![](https://tokei.rs/b1/github/x7cFClarity/ProgrammingLanguage)
 
 <img src="./ReadMe/banner.svg" width="100%"  alt="x7cF Clarity Programming Language Code Sample"/>
 
